@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>رمضان كريم</title>
+
+<style>
+body{
+    margin: 0;
+    text-align: center;
+    background: linear-gradient(to bottom, #0f2027, #203a43, #2c5364);
+    font-family: Arial;
+    color: white;
+}
+
+/* عنوان رمضان كريم */
+h1{
+    margin-top: 60px;
+    font-size: 60px;
+    color: gold;
+    text-shadow: 0 0 20px gold;
+}
+
+/* الفوانيس */
+.lanterns{
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 40px;
+}
+
+.lanterns img{
+    width: 120px;
+    animation: swing 1s infinite ease-in-out alternate;
+}
+
+@keyframes swing{
+    from{ transform: rotate(-10deg); }
+    to{ transform: rotate(10deg); }
+}
+
+/* الزرار */
+button{
+    margin-top: 80px;
+    padding: 15px 30px;
+    font-size: 20px;
+    background-color: gold;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+}
+
+button:hover{
+    background-color: orange;
+}
+
+</style>
+</head>
+
+<body>
+
+<h1>🌙 رمضان كريم 🌙</h1>
+
+<div class="lanterns">
+    <img src="picture/moon.png">
+    <img src="picture/lantern.png">
+    <img src="picture/moon.png">
+</div>
+
+<button onclick="goToPage()">clickkkkkkk</button>
+
+<script>
+function goToPage(){
+    window.location.href = "pg2.html";
+}
+</script>
+
+</body>
+</html>

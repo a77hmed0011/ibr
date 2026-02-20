@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Video Page</title>
+
+<style>
+
+body{
+    background: linear-gradient(to bottom, #0f2027, #203a43, #2c5364);
+    font-family: Arial;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+h1{
+    padding: 30px;
+    background-color: aqua;
+    width: 100%;
+    text-align: center;
+}
+
+/* ================= الفيديو ================= */
+
+.video-wrapper{
+    position: relative;
+    margin-top: 30px;
+}
+
+.video-container{
+    width: 350px;
+    height: 350px;
+}
+
+video{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+/* فوانيس الفيديو */
+.lantern{
+    position: absolute;
+    top: -40px;
+    width: 120px;
+    animation: swing 3s infinite ease-in-out alternate;
+}
+
+.lantern.left{ left: -140px; }
+.lantern.right{ right: -140px; }
+
+@keyframes swing{
+    from{ transform: rotate(-10deg); }
+    to{ transform: rotate(10deg); }
+}
+
+/* ================= زرار ================= */
+
+button{
+    margin-top: 25px;
+    padding: 12px 25px;
+    font-size: 18px;
+    border: none;
+    background-color: black;
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+/* ================= الصور ================= */
+
+.images-wrapper{
+    position: relative;
+    margin-top: 40px;
+}
+
+.images{
+    display: none;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 500px;
+}
+
+.images img{
+    width: 220px;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+/* الصورة التالتة أكبر شوية وتحت */
+.images img:nth-child(3){
+    width: 250px;
+}
+
+/* ================= فوانيس جنب الصور ================= */
+
+.side-lantern{
+    position: absolute;
+    top: 80px;
+    width: 100px;
+    animation: swing 3s infinite ease-in-out alternate;
+    display: none;
+}
+
+.side-left{ left: -120px; }
+.side-right{ right: -120px; }
+
+/* ================= الفانوس الكبير ================= */
+
+.big-lantern{
+    width: 180px;
+    margin-top: 40px;
+    transition: all 0.6s ease;
+    animation: swingBig 4s infinite ease-in-out alternate;
+}
+
+@keyframes swingBig{
+    from{ transform: rotate(-6deg); }
+    to{ transform: rotate(6deg); }
+}
+
+</style>
+</head>
+<body>
+
+<h1>Hi Ibrahem</h1>
+
+<!-- ================= الفيديو ================= -->
+
+<div class="video-wrapper">
+    <img src="picture/lantern.png" class="lantern left">
+    
+    <div class="video-container">
+        <video controls muted loop poster="picture/p4.jpeg">
+            <source src="video/v1.mp4" type="video/mp4">
+        </video>
+    </div>
+
+    <img src="picture/lantern.png" class="lantern right">
+</div>
+
+<button onclick="toggleImages()">اضغط هنا يسطا</button>
+
+<!-- ================= الصور ================= -->
+
+<div class="images-wrapper">
+
+    <img src="picture/lantern.png" class="side-lantern side-left" id="sideLeft">
+    <img src="picture/lantern.png" class="side-lantern side-right" id="sideRight">
+
+    <div class="images" id="photoSection">
+        <img src="picture/p1.jpeg">
+        <img src="picture/p2.jpeg">
+        <img src="picture/p3.jpeg">
+    </div>
+
+</div>
+
+<!-- الفانوس الكبير -->
+<img src="picture/lantern.png" class="big-lantern" id="bigLantern">
+
+<script>
+
+function toggleImages(){
+    var section = document.getElementById("photoSection");
+    var leftLantern = document.getElementById("sideLeft");
+    var rightLantern = document.getElementById("sideRight");
+    var bigLantern = document.getElementById("bigLantern");
+
+    if(section.style.display === "flex"){
+        section.style.display = "none";
+        leftLantern.style.display = "none";
+        rightLantern.style.display = "none";
+        bigLantern.style.marginTop = "40px";
+    } else {
+        section.style.display = "flex";
+        leftLantern.style.display = "block";
+        rightLantern.style.display = "block";
+        bigLantern.style.marginTop = "80px";
+    }
+}
+
+</script>
+
+</body>
+</html>
